@@ -1,44 +1,106 @@
-import React from "react";
+import React, { useState } from "react";
+import { IUser } from "../models/IUser";
+import "./componentStyle.css";
 
-export default function Header() {
-  const showImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const img = document.querySelector(".header-user-image");
-    img?.setAttribute("src", e.target.value);
+interface IProps {}
+interface IState {
+  user: IUser;
+}
+
+let Header: React.FC<IProps> = ({}) => {
+  let [state, setState] = useState<IState>({
+    user: {
+      name: "",
+      title: "",
+      objective: "",
+      location: "",
+      phone: "",
+      email: "",
+      website: "",
+    },
+  });
+
+  let updateInput = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setState({
+      user: {
+        ...state.user,
+        [event.target.name]: event.target.value,
+      },
+    });
   };
+
   return (
     <div className="header-container">
-      <form className="header-form">
-        <div className="header-image">
-          <label className="header-image-box">
-            <img className="header-user-image" src="#" alt=""></img>
-            <input onChange={showImage} hidden type="file" name="image"></input>
-          </label>
-        </div>
-        <div className="header-info">
-          <label>Name: </label>
-          <input type="text" name="name" placeholder="John Doe"></input>
-          <label>Title: </label>
+      <div className="header-info-container">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your name"
+          value={state.user.name}
+          onChange={updateInput}
+        ></input>
+        <input
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={state.user.title}
+          onChange={updateInput}
+        ></input>
+        <textarea
+          name="objective"
+          placeholder="Summary/Objective"
+          value={state.user.objective}
+          onChange={updateInput}
+        ></textarea>
+      </div>
+      <div className="header-other-container">
+        <div className="header-other">
+          <i className="fa fa-location-dot"></i>
           <input
             type="text"
-            name="title"
-            placeholder="Frontend Developer"
+            name="location"
+            placeholder="Location"
+            value={state.user.location}
+            onChange={updateInput}
           ></input>
         </div>
-        <div className="header-addl-info">
-          <input type="text" name="location" placeholder="Torrance, CA"></input>
-          <input type="text" name="phone" placeholder="(310)329-2826"></input>
+        <div className="header-other">
+        <i className="fa fa-phone"></i>
           <input
-            type="text"
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={state.user.phone}
+            onChange={updateInput}
+          ></input>
+        </div>
+        <div className="header-other">
+        <i className="fa fa-envelope"></i>
+          <input
+            type="email"
             name="email"
-            placeholder="johndoe@gmail.com"
-          ></input>
-          <input
-            type="text"
-            name="github"
-            placeholder="https://github.com/jdoe"
+            placeholder="Email"
+            value={state.user.email}
+            onChange={updateInput}
           ></input>
         </div>
-      </form>
+        <div className="header-other">
+        <i className="fa fa-link"></i>
+          <input
+            type="url"
+            name="website"
+            placeholder="Professional Website"
+            value={state.user.website}
+            onChange={updateInput}
+          ></input>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default Header;
