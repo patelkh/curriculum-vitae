@@ -4,10 +4,9 @@ import "./componentStyle.css";
 
 interface IProps {
   header: IUser
-  updateHeaderInput: any 
 }
 
-let Header: React.FC<IProps> = ({header, updateHeaderInput}) => {
+let HeaderView: React.FC<IProps> = ({header}) => {
   return (
     <div className="header-container">
       <div className="header-info-container">
@@ -16,20 +15,17 @@ let Header: React.FC<IProps> = ({header, updateHeaderInput}) => {
           name="name"
           placeholder="Your name"
           value={header.name}
-          onChange={updateHeaderInput}
         ></input>
         <input
           type="text"
           name="title"
           placeholder="Title"
           value={header.title}
-          onChange={updateHeaderInput}
         ></input>
         <textarea
           name="objective"
           placeholder="Summary/Objective"
           value={header.objective}
-          onChange={updateHeaderInput}
         ></textarea>
       </div>
       <div className="header-other-container">
@@ -40,7 +36,6 @@ let Header: React.FC<IProps> = ({header, updateHeaderInput}) => {
             name="location"
             placeholder="Location"
             value={header.location}
-            onChange={updateHeaderInput}
           ></input>
         </div>
         <div className="header-other">
@@ -50,7 +45,6 @@ let Header: React.FC<IProps> = ({header, updateHeaderInput}) => {
             name="phone"
             placeholder="Phone Number"
             value={header.phone}
-            onChange={updateHeaderInput}
           ></input>
         </div>
         <div className="header-other">
@@ -60,7 +54,6 @@ let Header: React.FC<IProps> = ({header, updateHeaderInput}) => {
             name="email"
             placeholder="Email"
             value={header.email}
-            onChange={updateHeaderInput}
           ></input>
         </div>
         <div className="header-other">
@@ -70,7 +63,6 @@ let Header: React.FC<IProps> = ({header, updateHeaderInput}) => {
             name="website"
             placeholder="Professional Website"
             value={header.website}
-            onChange={updateHeaderInput}
           ></input>
         </div>
       </div>
@@ -78,4 +70,4 @@ let Header: React.FC<IProps> = ({header, updateHeaderInput}) => {
   );
 };
 
-export default Header;
+export default HeaderView;

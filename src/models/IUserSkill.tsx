@@ -1,3 +1,4 @@
 export interface IUserSkill {
-    name: string 
+    id: number
+    skill: string 
 }

@@ -1,4 +1,5 @@
 export interface IUserExperience {
+    id: number
     title: string
     company: string
     start: Date

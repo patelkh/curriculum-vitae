@@ -4,19 +4,18 @@ import { IUserSkill } from "../models/IUserSkill";
 
 interface IProps {
   skill: IUserSkill;
-  updateSkillUpdate: any;
 }
 
-let Skill: React.FC<IProps> = ({ skill, updateSkillUpdate }) => {
+let SkillView: React.FC<IProps> = ({ skill }) => {
   return (
     <div className="skill-section">
       <input
         type="text"
         name="skill"
-        onChange={(event) => updateSkillUpdate(event, skill.id)}
+        value={skill.skill}
       ></input>
     </div>
   );
 };
 
-export default Skill;
+export default SkillView;

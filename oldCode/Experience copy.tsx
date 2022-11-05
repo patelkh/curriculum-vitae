@@ -2,15 +2,32 @@ import React, { useState } from "react";
 import './componentStyle.css'
 import { IUserExperience } from "../models/IUserExperience";
 
-interface IProps{
-  experience: IUserExperience
-  updateExperienceInput: any 
+interface IProps{}
+interface IState{
+    experience: IUserExperience
 }
 
-let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
+let Experience:React.FC<IProps> = ({}) => {
+    let [state, setState] = useState<IState>({
+        experience: {
+            title: '',
+            company: '',
+            start: new Date(),
+            end: new Date(),
+            description: ''
+        } as IUserExperience
+    })
+
+    let updateInput = (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+        setState({
+            experience: {
+            ...state.experience, [event.target.name]: [event.target.value]}})
+        // console.log(JSON.stringify(state.experience))
+          
+    }
 
     return(
-
+        <div className="experience-container">
             <div className="section-container">
               <div className="top-level-details">
                 <div className="title-company">
@@ -19,7 +36,7 @@ let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
                   <input 
                   type="text" 
                   name="title"
-                  onChange={(event) =>  updateExperienceInput(event, experience.id)}
+                  onChange={updateInput}
                   ></input>
                 </div>
                 <div className="company-detail">
@@ -27,7 +44,7 @@ let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
                   <input 
                   type="text" 
                   name="company"
-                  onChange={(event) =>  updateExperienceInput(event, experience.id)}
+                  onChange={updateInput}
                   ></input>
                 </div>
                 </div>
@@ -38,7 +55,7 @@ let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
                       <input
                         type="date"
                         name="start"
-                        onChange={(event) =>  updateExperienceInput(event, experience.id)}
+                        onChange={updateInput}
                       ></input>
                     </label>
                   </div>
@@ -47,19 +64,19 @@ let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
                       End Date:
                       <input
                         type="date"
-                        name="end"
-                        onChange={(event) =>  updateExperienceInput(event, experience.id)}
+                        name="end-date"
+                        onChange={updateInput}
                       ></input>
                     </label>
                   </div>
                 </div>
               </div>
               <div className="bottom-level-details">
-                <textarea name="description" className="experience-details" onChange={(event) =>  updateExperienceInput(event, experience.id)}></textarea>
+                <textarea className="experience-details" onChange={updateInput}></textarea>
               </div>
             </div>
             
-
+        </div>
     )
 }
 
