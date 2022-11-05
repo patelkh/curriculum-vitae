@@ -7,15 +7,7 @@ interface IProps {
 }
 
 let SkillView: React.FC<IProps> = ({ skill }) => {
-  return (
-    <div className="skill-section">
-      <input
-        type="text"
-        name="skill"
-        value={skill.skill}
-      ></input>
-    </div>
-  );
+  return <div className="skill-section">{skill.skill}</div>;
 };
 
 export default SkillView;

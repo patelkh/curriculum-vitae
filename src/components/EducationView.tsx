@@ -11,26 +11,14 @@ let EducationView: React.FC<IProps> = ({ education }) => {
     <div className="section-container">
       <div className="program-container">
         <div className="program-details">
-          <label htmlFor="major">Major: </label>
-          <input value={education.major} type="text" name="major"></input>
-          <label htmlFor="institution">Institution: </label>
-          <input
-            type="text"
-            name="institution"
-            value={education.institution}
-          ></input>
+          <p><i>{education.major}</i><br></br>
+          <b>{education.institution}</b></p>
         </div>
         <div className="program-dates">
-          <label htmlFor="date">
-            End Date:
-            <input
-              type="text"
-              name="date"
-              value={education.date.toLocaleDateString("en-US", {
+          <p>{education.date.toLocaleDateString("en-US", {
                 timeZone: "UTC",
-              })}
-            ></input>
-          </label>
+              })}</p>
+          
         </div>
       </div>
     </div>

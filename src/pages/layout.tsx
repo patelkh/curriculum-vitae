@@ -248,9 +248,8 @@ let Layout: React.FC<IProps> = ({}) => {
   return (
     <div className="layout-container">
       <div className="form-container">
-        <div className="header-container">
-          <Header header={header!} updateHeaderInput={updateHeaderInput} />
-        </div>
+        <Header header={header!} updateHeaderInput={updateHeaderInput} />
+
         <div className="cv-form-experience">
           <div className="section-heading-container">
             <h4 className="section-heading">Experience</h4>
@@ -344,9 +343,7 @@ let Layout: React.FC<IProps> = ({}) => {
       </div>
       <div className="view-container">
         <div className="view-header-container">
-          <div className="header-container">
-            <HeaderView header={header} />
-          </div>
+          <HeaderView header={header} />
         </div>
 
         <div className="view-experience-container">
@@ -374,10 +371,7 @@ let Layout: React.FC<IProps> = ({}) => {
             education!.map((item, index) => {
               return (
                 <div className="education-container">
-                  <EducationView
-                    key={item.id}
-                    education={education[index]}
-                  />
+                  <EducationView key={item.id} education={education[index]} />
                 </div>
               );
             })}
@@ -390,10 +384,7 @@ let Layout: React.FC<IProps> = ({}) => {
             skills!.map((skill, index) => {
               return (
                 <div className="skill-container">
-                  <SkillView
-                    key={skill.id}
-                    skill={skills[index]}
-                  />
+                  <SkillView key={skill.id} skill={skills[index]} />
                 </div>
               );
             })}
