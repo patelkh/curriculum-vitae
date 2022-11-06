@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { IUser } from "../models/IUser";
 import "./componentStyle.css";
 

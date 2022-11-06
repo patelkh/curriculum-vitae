@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./componentStyle.css";
 import { IUserSkill } from "../models/IUserSkill";
 
@@ -13,6 +13,7 @@ let Skill: React.FC<IProps> = ({ skill, updateSkillUpdate }) => {
       <input
         type="text"
         name="skill"
+        value={skill.skill}
         onChange={(event) => updateSkillUpdate(event, skill.id)}
       ></input>
     </div>

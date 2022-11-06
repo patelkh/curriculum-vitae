@@ -1,9 +1,9 @@
 /* #f8B195, #f67280, #c06c84, #6c5b7b, #355c7d */
 
-.layout-container {
+/* .layout-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
+} */
 
 .form-container {
   display: block
@@ -78,6 +78,7 @@
 
 
 .view-container {
-  margin-left: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
   
 }

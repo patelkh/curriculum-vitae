@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './componentStyle.css'
 import { IUserExperience } from "../models/IUserExperience";
 
@@ -8,6 +8,8 @@ interface IProps{
 }
 
 let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
+  let startDate = experience.start.toISOString().substring(0, 10)
+  let endDate= experience.end.toISOString().substring(0, 10)
 
     return(
 
@@ -19,6 +21,7 @@ let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
                   <input 
                   type="text" 
                   name="title"
+                  value={experience.title}
                   onChange={(event) =>  updateExperienceInput(event, experience.id)}
                   ></input>
                 </div>
@@ -27,6 +30,7 @@ let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
                   <input 
                   type="text" 
                   name="company"
+                  value={experience.company}
                   onChange={(event) =>  updateExperienceInput(event, experience.id)}
                   ></input>
                 </div>
@@ -38,6 +42,7 @@ let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
                       <input
                         type="date"
                         name="start"
+                        value={startDate}
                         onChange={(event) =>  updateExperienceInput(event, experience.id)}
                       ></input>
                     </label>
@@ -48,6 +53,7 @@ let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
                       <input
                         type="date"
                         name="end"
+                        value={endDate}
                         onChange={(event) =>  updateExperienceInput(event, experience.id)}
                       ></input>
                     </label>
@@ -55,7 +61,7 @@ let Experience:React.FC<IProps> = ({experience, updateExperienceInput}) => {
                 </div>
               </div>
               <div className="bottom-level-details">
-                <textarea name="description" className="experience-details" onChange={(event) =>  updateExperienceInput(event, experience.id)}></textarea>
+                <textarea value={experience.description} name="description" className="experience-details" onChange={(event) =>  updateExperienceInput(event, experience.id)}></textarea>
               </div>
             </div>
             
