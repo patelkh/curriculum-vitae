@@ -1,4 +1,5 @@
 {
+  "homepage": "http://patelkh.github.io/curriculum-vitae",
   "name": "curriculum-vitae",
   "version": "0.1.0",
   "private": true,
@@ -24,6 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,6 +51,7 @@
     ]
   },
   "devDependencies": {
-    "@types/reactstrap": "^8.7.2"
+    "@types/reactstrap": "^8.7.2",
+    "gh-pages": "^4.0.0"
   }
 }
